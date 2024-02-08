@@ -8,15 +8,9 @@
 class Post
 {
     private ? int $id = null;
+    private array $categories = [];
 
-    /**
-     * @param string $title
-     * @param string $excerpt
-     * @param string $content
-     * @param string $author
-     * @param string $createdAt
-     */
-    public function __construct(private string $title, private string $excerpt, private string $content, private string $author, private string $createdAt)
+    public function __construct(private string $title, private string $excerpt, private string $content, private User $author, private DateTime $createdAt = new DateTime())
     {
 
     }
@@ -36,7 +30,7 @@ class Post
     {
         $this->id = $id;
     }
-    
+
     /**
      * @return string
      */
@@ -84,23 +78,23 @@ class Post
     {
         $this->content = $content;
     }
-    
+
     /**
-     * @return string
+     * @return User
      */
-    public function getAuthor(): ?int
+    public function getAuthor(): User
     {
         return $this->author;
     }
 
     /**
-     * @param string $author
+     * @param User $author
      */
-    public function setAuthor(?int $author): void
+    public function setAuthor(User $author): void
     {
         $this->author = $author;
     }
-   
+
     /**
      * @return DateTime
      */
@@ -115,5 +109,21 @@ class Post
     public function setCreatedAt(DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCategories(): array
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param array $categories
+     */
+    public function setCategories(array $categories): void
+    {
+        $this->categories = $categories;
     }
 }

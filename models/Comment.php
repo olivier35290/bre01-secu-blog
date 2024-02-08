@@ -9,12 +9,7 @@ class Comment
 {
     private ? int $id = null;
 
-    /**
-     * @param string $content
-     * @param string $userId
-     * @param string $postId
-     */
-    public function __construct(private string $content, private string $userId, private string $postId)
+    public function __construct(private string $content, private User $user, private Post $post)
     {
 
     }
@@ -50,36 +45,36 @@ class Comment
     {
         $this->content = $content;
     }
-    
+
     /**
-     * @return string
+     * @return User
      */
-    public function getUserId(): ?int
+    public function getUser(): User
     {
-        return $this->userId;
+        return $this->user;
     }
 
     /**
-     * @param string $userId
+     * @param User $user
      */
-    public function setUserId(?int $userId): void
+    public function setUser(User $user): void
     {
-        $this->userId = $userId;
-    }
-   
-    /**
-     * @return string
-     */
-    public function getPostId(): ?int
-    {
-        return $this->postId;
+        $this->user = $user;
     }
 
     /**
-     * @param string $postId
+     * @return Post
      */
-    public function setPostId(?int $postId): void
+    public function getPost(): Post
     {
-        $this->postId = $postId;
+        return $this->post;
+    }
+
+    /**
+     * @param Post $post
+     */
+    public function setPost(Post $post): void
+    {
+        $this->post = $post;
     }
 }

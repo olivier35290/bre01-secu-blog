@@ -4,19 +4,11 @@
  * @link : https://github.com/Gaellan
  */
 
-
 class User
 {
     private ? int $id = null;
 
-    /**
-     * @param string $username
-     * @param string $email
-     * @param string $password
-     * @param string $role
-     * @param DateTime $createdAt
-     */
-    public function __construct(private string $username, private string $email, private string $password, private string $role, private DateTime $createdAt)
+    public function __construct(private string $username, private string $email, private string $password, private string $role = "USER")
     {
 
     }
@@ -99,21 +91,5 @@ class User
     public function setRole(string $role): void
     {
         $this->role = $role;
-    }
-
-    /**
-     * @return DateTime
-     */
-    public function getCreatedAt(): DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param DateTime $createdAt
-     */
-    public function setCreatedAt(DateTime $createdAt): void
-    {
-        $this->createdAt = $createdAt;
     }
 }

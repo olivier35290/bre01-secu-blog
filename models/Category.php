@@ -9,11 +9,6 @@ class Category
 {
     private ? int $id = null;
 
-    /**
-     * @param string $title
-     * @param string $description
-     
-     */
     public function __construct(private string $title, private string $description)
     {
 
@@ -34,7 +29,7 @@ class Category
     {
         $this->id = $id;
     }
-    
+
     /**
      * @return string
      */
@@ -66,5 +61,4 @@ class Category
     {
         $this->description = $description;
     }
-
 }
